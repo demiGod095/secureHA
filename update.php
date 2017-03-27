@@ -17,10 +17,10 @@ function distance($lat1, $lon1, $lat2, $lon2)
   return $kilo;
 }
 
-    if(isset($_GET['lat']) && isset($_GET['lon']))
+    if(isset($_POST['lat']) && isset($_POST['lon']))
     {
-        $dlat = $_GET['lat'];
-        $dlon = $_GET['lon'];
+        $dlat = $_POST['lat'];
+        $dlon = $_POST['lon'];
         $dis = distance($hlat, $hlon, $dlat, $dlon);
         if ($dis < $thr)
         {
