@@ -31,7 +31,7 @@ function distance($lat1, $lon1, $lat2, $lon2)
             $sql = 'UPDATE users SET status = 0 AND dist = \''.$dis.'\' WHERE id = 1';
         }
         $upd = $conn->query($sql);
-        print_r($upd);
+        print_r($dis);
 
     }
     else
