@@ -30,8 +30,17 @@ function distance($lat1, $lon1, $lat2, $lon2)
         {
             $sql = 'UPDATE users SET status = 0 AND dist = \''.$dis.'\' WHERE id = 1';
         }
-        $upd = $conn->query($sql);
-        print_r($dis);
+        if ($conn->query($sql) === TRUE)
+        {
+            echo "Record updated successfully";
+        }
+        else
+        {
+            echo "Error updating record: " . $conn->error;
+        } 
+        echo "\n"." Dist =".$dis;
+        echo "\n"."sql = ".$sql;
+
 
     }
     else
