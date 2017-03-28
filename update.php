@@ -24,11 +24,11 @@ function distance($lat1, $lon1, $lat2, $lon2)
         $dis = distance($hlat, $hlon, $dlat, $dlon);
         if ($dis < $thr)
         {
-            $sql = 'UPDATE users SET status = 1 WHERE id = 1';
+            $sql = 'UPDATE users SET status = 1 AND dist = \''.$dis.'\' WHERE id = 1';
         }
         else
         {
-            $sql = 'UPDATE users SET status = 0 WHERE id = 1';
+            $sql = 'UPDATE users SET status = 0 AND dist = \''.$dis.'\' WHERE id = 1';
         }
         $upd = $conn->query($sql);
         print_r($upd);
