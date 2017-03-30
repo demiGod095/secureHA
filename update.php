@@ -1,8 +1,8 @@
 <?php
 require_once 'conn.php';
-$hlat = 12.844158;
-$hlon = 80.152443;
-$thr = 0.2;
+$hlat = 12.840832;
+$hlon = 80.153790;
+$thr = 0.05;
 
 function distance($lat1, $lon1, $lat2, $lon2)
 {
