@@ -1,9 +1,10 @@
 <?php
+    //RESPONDS WITH STATUS TO MICROCONTROLLER
     require_once 'conn.php';
     if(isset($_POST['id']))
     {
         $id = $_POST['id'];
-        
+
         $sql = "SELECT status FROM users WHERE id = " .$id ;
 
         $search = $conn->query($sql);

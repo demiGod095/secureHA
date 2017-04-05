@@ -1,11 +1,10 @@
 <?php
 require_once 'conn.php';
-$hlat = 12.840832;
-$hlon = 80.153790;
-$thr = 0.05;
+$hlat = 12.840832; //fetch from database
+$hlon = 80.153790; //fetch from database
+$thr = 0.2;
 
-function distance($lat1, $lon1, $lat2, $lon2)
-{
+function distance($lat1, $lon1, $lat2, $lon2){
 
   $theta = $lon1 - $lon2;
   $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
@@ -37,7 +36,7 @@ function distance($lat1, $lon1, $lat2, $lon2)
         else
         {
             echo "Error updating record: " . $conn->error;
-        } 
+        }
         echo "\n"." Dist =".$dis;
         echo "\n"."sql = ".$sql;
 

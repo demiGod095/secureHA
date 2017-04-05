@@ -1,3 +1,4 @@
+// DB CONNECTION FILE
 <?php
 $servername = "localhost";
 $username = "www";
