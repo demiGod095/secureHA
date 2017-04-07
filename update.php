@@ -1,20 +1,9 @@
 <?php
-require_once 'conn.php';
-$hlat = 12.840832; //fetch from database
-$hlon = 80.153790; //fetch from database
-$thr = 0.2;
-
-function distance($lat1, $lon1, $lat2, $lon2){
-
-  $theta = $lon1 - $lon2;
-  $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
-  $dist = acos($dist);
-  $dist = rad2deg($dist);
-  $miles = $dist * 60 * 1.1515;
-  $kilo = $miles * 1.609344;
-
-  return $kilo;
-}
+    require_once 'conn.php';
+    require_once 'dist.php';
+    $hlat = 12.841666; //fetch from database
+    $hlon = 80.154147; //fetch from database
+    $thr = 0.2;
 
     if(isset($_POST['lat']) && isset($_POST['lon']))
     {
@@ -37,13 +26,7 @@ function distance($lat1, $lon1, $lat2, $lon2){
         {
             echo "Error updating record: " . $conn->error;
         }
-        echo "\n"." Dist =".$dis;
-        echo "\n"."sql = ".$sql;
-
-
-    }
-    else
-    {
-        echo 'NO DATA';
+        //echo "\n"." Dist =".$dis;
+        //echo "\n"."sql = ".$sql;
     }
 ?>
