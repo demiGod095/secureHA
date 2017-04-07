@@ -20,7 +20,7 @@
         }
         if ($conn->query($sql) === TRUE)
         {
-            echo "Record updated successfully";
+            echo "Dist = " .$dis;
         }
         else
         {
