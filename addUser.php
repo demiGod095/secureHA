@@ -1,9 +1,7 @@
 <?php
 		require_once 'conn.php'
-    	$sql='SELECT * FROM dummy WHERE email ='.$email;
-		$res= $conn->query($sql);
 			//$password = rand(1000,5000);
-
+		echo "HI";
 			$sql= 'INSERT INTO users(username, password, homeLat, homeLon, status, dist) 
 					VALUES (\'shreyas\',
 							 \''.md5(shreyas).'\',
@@ -14,7 +12,6 @@
 			if($conn->query($sql) === TRUE)
 			{
 				echo 'PASS';
-
 			}
 			else
 			{
