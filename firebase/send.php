@@ -30,9 +30,11 @@ $response = '';
     //$regId = isset($_GET['regId']) ? $_GET['regId'] : '';
     $regId = 'flBGS8GMIdw:APA91bHvsVIfILX6uVeZ-GX4zYojdVEO7_ld9zxu1yTqdqd9WuG9RoNBRkeWZ67FEXQ8vvkZnawNiIYTalsWnP3o7fE0PCbFfJC3FRtqP1OWJrDXFSvFjBnXGtN1n6AsLs_b2yYmCQ4V';
     $response = $firebase->send($regId, $json);
-    echo $response."<br>".$json."<br>";
+    echo $response."<br><br>";
+    print_r($json);
+    echo "<br><br>";
     print_r($push);
-    echo "<br>";
+    echo "<br><br>";
     print_r($firebase);
 /*else
 {
