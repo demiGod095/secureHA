@@ -28,10 +28,9 @@ $response = '';
     $push->setPayload($payload);
     $json = $push->getPush();
     //$regId = isset($_GET['regId']) ? $_GET['regId'] : '';
-    $regId = 'dmZjatRsD6Q:APA91bH0eoQeORWIs9GSueTDkQwmO_sPXUcEswxXucDduXEBTnFwY9F6inMzOWRVeFGERwXgeGbeZoFKhi5LCh52FEtGRtmMOBKahMlVaByvygeCHVauUpjtAo1PFu7iFDBrDB48JfEh'
+    $regId = 'dmZjatRsD6Q:APA91bH0eoQeORWIs9GSueTDkQwmO_sPXUcEswxXucDduXEBTnFwY9F6inMzOWRVeFGERwXgeGbeZoFKhi5LCh52FEtGRtmMOBKahMlVaByvygeCHVauUpjtAo1PFu7iFDBrDB48JfEh';
     $response = $firebase->send($regId, $json);
     echo $pLoc;
-}
 /*else
 {
     $json = $push->getPush();
