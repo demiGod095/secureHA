@@ -3,26 +3,23 @@
     
     if(isset($_POST['username']) && isset($_POST['password']))
     {
-        echo "logged";
-        exit(0);
+        $usname = $_POST['username']; // Set email variable
+        $pass = $_POST['password'];
         
-        if ($dis < $thr)
+        $sql = "SELECT * FROM users WHERE username='".$usname."' AND password='".md5($pass);
+        //echo $sql."<br>";
+        $search = $conn->query($sql);
+
+        //print_r($search);
+        $match  = mysqli_num_rows($search);
+        if($match == 1)
         {
-            $sql = 'UPDATE users SET status = 1, dist = \''.$dis.'\' WHERE id = 1';
+            echo "logged";
         }
         else
         {
-            $sql = 'UPDATE users SET status = 0, dist = \''.$dis.'\' WHERE id = 1';
+            echo "FAIL";
         }
-        if ($conn->query($sql) === TRUE)
-        {
-            echo "Dist = " .$dis;
-        }
-        else
-        {
-            echo "Error updating record: " . $conn->error;
-        }
-        //echo "\n"." Dist =".$dis;
-        //echo "\n"."sql = ".$sql;
+
     }
 ?>
