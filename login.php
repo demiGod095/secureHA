@@ -6,7 +6,7 @@
         $usname = $_POST['username']; // Set email variable
         $pass = $_POST['password'];
         
-        $sql = "SELECT * FROM users WHERE username='".$usname."' AND password='".md5($pass);
+        $sql = "SELECT * FROM users WHERE username='".$usname."' AND password='".md5($pass)."'";
         echo $sql."<br>";
         $search = $conn->query($sql);
 
