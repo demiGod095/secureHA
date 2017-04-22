@@ -11,6 +11,7 @@ class Firebase {
         $fields = array(
             'to' => $to,
             'data' => $message,
+            'notification' : {  "body" : "Notif" },
         );
         return $this->sendPushNotification($fields);
     }
@@ -20,6 +21,7 @@ class Firebase {
         $fields = array(
             'to' => '/topics/' . $to,
             'data' => $message,
+            'notification' : {  "body" : "Notif" },
         );
         return $this->sendPushNotification($fields);
     }
@@ -29,6 +31,7 @@ class Firebase {
         $fields = array(
             'to' => $registration_ids,
             'data' => $message,
+            'notification' : {  "body" : "Notif" },
         );
  
         return $this->sendPushNotification($fields);
