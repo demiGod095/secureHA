@@ -1,5 +1,5 @@
 <?php
-		require_once 'conn.php'
+		require_once 'conn.php';
 			//$password = rand(1000,5000);
 		echo "HI";
 			$sql= 'INSERT INTO users(username, password, homeLat, homeLon, status, dist) 
