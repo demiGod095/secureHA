@@ -1,5 +1,5 @@
 <?php
-		require_once __DIR__ . '/conn.php';
+		require_once 'conn.php'
     	$sql='SELECT * FROM dummy WHERE email ='.$email;
 		$res= $conn->query($sql);
 			//$password = rand(1000,5000);
@@ -20,5 +20,4 @@
 			{
 				echo 'DB FAIL';
 			}
-		}
 ?>
