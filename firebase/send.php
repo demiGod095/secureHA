@@ -12,10 +12,10 @@ $push = new Push();
 // optional payload
 $payload = array();
 $payload['test']='test';
-$payload['location']='XYZ';
+//$payload['location']='XYZ';
 
-$title = 'JouncePay';
-$message = 'You\'re at a Petrol Pump.';
+$title = 'LOL';
+$message = 'HELLO';
 $push->setTitle($title);
 $push->setMessage($message);
 $push->setImage('http://www.thepeacefulhaven.com/wp-content/uploads/2015/04/road-sign-361513_640.jpg');
@@ -25,57 +25,18 @@ $push->setIsBackground(TRUE);
 $json = '';
 $response = '';
 
-if(isset($_GET['dmac']) && isset($_GET['pmac']))
-{
-	require '../db/conn.php';
-    $esp = $_GET['dmac'];
-    $sql = 'SELECT fkey FROM dummy WHERE dmac = '.'\''.$esp.'\'';
-    //echo $sql;
-    $result = $conn->query($sql);
-
-    if ($result->num_rows == 1)
-    {
-    	$row = $result->fetch_assoc();
-        $regId = $row['fkey'];
-        //echo $regId;
-    }
-	else
-	{
-    	echo "Invalid Results";
-        die();
-	}
-
-    $pump = $_GET['pmac'];
-    $sql = 'SELECT location FROM pumps WHERE pmac = '.'\''.$pump.'\'';
-    //echo $sql;
-    $result = $conn->query($sql);
-
-    if ($result->num_rows == 1)
-    {
-        $row = $result->fetch_assoc();
-        $pLoc = $row['location'];
-        //echo $regId;
-    }
-    else
-    {
-        echo "Invalid Location";
-        die();
-    }
-
-    $conn->close();
-
-    $payload['location']=$pLoc;
     $push->setPayload($payload);
     $json = $push->getPush();
     //$regId = isset($_GET['regId']) ? $_GET['regId'] : '';
+    $regId = 'dmZjatRsD6Q:APA91bH0eoQeORWIs9GSueTDkQwmO_sPXUcEswxXucDduXEBTnFwY9F6inMzOWRVeFGERwXgeGbeZoFKhi5LCh52FEtGRtmMOBKahMlVaByvygeCHVauUpjtAo1PFu7iFDBrDB48JfEh'
     $response = $firebase->send($regId, $json);
     echo $pLoc;
 }
-else
+/*else
 {
     $json = $push->getPush();
     $response = $firebase->sendToTopic('global', $json);
     
     echo "sent global";
-}
+}*/
 ?>
