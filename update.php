@@ -11,7 +11,7 @@
         $dlat = $_POST['lat'];
         $dlon = $_POST['lon'];
         $upd = $_POST['upd'];
-        if($upd === 'true')
+        if($upd == 'true')
         {
             $dis = distance($hlat, $hlon, $dlat, $dlon);
             if ($dis < $thr)
