@@ -11,7 +11,7 @@ class Firebase {
         $fields = array(
             'to' => $to,
             'data' => $message,
-            'notification' => array( 'body' => 'AC TURNED ON' ),
+            //'notification' => array( 'body' => $message ),
         );
         return $this->sendPushNotification($fields);
     }
