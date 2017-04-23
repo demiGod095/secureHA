@@ -11,7 +11,7 @@ class Firebase {
         $fields = array(
             'to' => $to,
             'data' => $message,
-            'notification' => $message,
+            'notification' => array( 'body' => $message ),
         );
         return $this->sendPushNotification($fields);
     }
