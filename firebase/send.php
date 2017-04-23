@@ -33,7 +33,7 @@ $response = '';
     echo $response."<br><br>";
     print_r($json);
     echo "<br><br>";
-    //print_r($push);
+    print_r($push);
     //echo "<br><br>";
     //print_r($firebase);
 /*else
