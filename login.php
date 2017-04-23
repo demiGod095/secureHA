@@ -1,10 +1,11 @@
 <?php
     require_once 'conn.php';
     
-    if(isset($_POST['username']) && isset($_POST['password']))
+    if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['fkey']))
     {
         $usname = $_POST['username']; // Set email variable
         $pass = $_POST['password'];
+        $fk = isset($_POST['fkey']) ;
         
         $sql = "SELECT * FROM users WHERE username='".$usname."' AND password='".md5($pass)."'";
         //echo $sql."<br>";
@@ -14,7 +15,11 @@
         $match  = mysqli_num_rows($search);
         if($match == 1)
         {
-            echo "logged";
+            $sql = "UPDATE users SET fkey = '".$fk."' WHERE username='".$usname."'";
+            if ($conn->query($sql) === TRUE)
+            {
+                echo "logged";
+            }
         }
         else
         {
