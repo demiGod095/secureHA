@@ -25,7 +25,7 @@
                     $sql = 'UPDATE users SET status = 1, dist = \''.$dis.'\' WHERE id = '.$id;
                     if ($conn->query($sql) === TRUE)
                     {
-                        echo "ON";
+                        echo "ON (Auto)";
                         $sql = "SELECT fkey FROM users WHERE id = ".$id;
                         $res = $conn->query($sql);
                         $row = $res->fetch_assoc();
@@ -43,7 +43,7 @@
                 $sql = 'UPDATE users SET status = 0, dist = \''.$dis.'\' WHERE id = '.$id;
                 if ($conn->query($sql) === TRUE)
                 {
-                    echo "OFF";
+                    echo "OFF (Auto)";
                 }
                 else
                 {
@@ -59,16 +59,12 @@
             $status = $row['status'];
             if ( $status == 0)
             {
-                echo "OFF";
+                echo "OFF (Manual)";
             }
             else
             {
-                echo "ON";
+                echo "ON (Manual)";
             }
         }
-    }
-    else
-    {
-        echo "post fail";
     }
 ?>
