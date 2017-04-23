@@ -67,4 +67,8 @@
             }
         }
     }
+    else
+    {
+        echo "post fail";
+    }
 ?>
