@@ -1,13 +1,19 @@
 <?php
     require_once 'conn.php';
     require_once 'dist.php';
-    $hlat = 12.841666; //fetch from database
-    $hlon = 80.154147; //fetch from database
+
     $thr = 0.2;
+    $id=1;
+
+    $sql = 'SELECT homeLat, homeLon FROM users Where ID = '.$id;
+    $res = $conn->query($sql);
+    $row = $res->fetch_assoc();
+    $hlat = $row['homeLat'];
+    $hlon = $row['homeLon'];
 
     if(isset($_POST['lat']) && isset($_POST['lon']) && isset($_POST['upd']))
     {
-        $id=1;
+        
         $dlat = $_POST['lat'];
         $dlon = $_POST['lon'];
         $upd = $_POST['upd'];
