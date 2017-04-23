@@ -5,7 +5,7 @@
     {
         $usname = $_POST['username']; // Set email variable
         $pass = $_POST['password'];
-        $fk = isset($_POST['fkey']) ;
+        $fk = $_POST['fkey'];
         
         $sql = "SELECT * FROM users WHERE username='".$usname."' AND password='".md5($pass)."'";
         //echo $sql."<br>";
