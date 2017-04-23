@@ -7,25 +7,40 @@
 
     if(isset($_POST['lat']) && isset($_POST['lon']))
     {
+        $id=1;
         $dlat = $_POST['lat'];
         $dlon = $_POST['lon'];
         $dis = distance($hlat, $hlon, $dlat, $dlon);
         if ($dis < $thr)
         {
-            $sql = 'UPDATE users SET status = 1, dist = \''.$dis.'\' WHERE id = 1';
+            $sql = 'UPDATE users SET status = 1, dist = \''.$dis.'\' WHERE id = '.$id;
+            if ($conn->query($sql) === TRUE)
+            {
+                echo "Dist = " .$dis;
+                $sql = "SELECT fkey FROM users WHERE id = ".$id;
+                $res = $conn->query($sql);
+                $row = $res->fetch_assoc();
+                $regId = $row['fkey'];
+                include 'firebase/send.php';
+            }
+            else
+            {
+                echo "Error updating record: " . $conn->error;
+            }
         }
         else
         {
-            $sql = 'UPDATE users SET status = 0, dist = \''.$dis.'\' WHERE id = 1';
+            $sql = 'UPDATE users SET status = 0, dist = \''.$dis.'\' WHERE id = '.$id;
+            if ($conn->query($sql) === TRUE)
+            {
+                echo "Dist = " .$dis;
+            }
+            else
+            {
+                echo "Error updating record: " . $conn->error;
+            }
         }
-        if ($conn->query($sql) === TRUE)
-        {
-            echo "Dist = " .$dis;
-        }
-        else
-        {
-            echo "Error updating record: " . $conn->error;
-        }
+        
         //echo "\n"." Dist =".$dis;
         //echo "\n"."sql = ".$sql;
     }
