@@ -50,7 +50,7 @@ class Push {
         $res['data']['image'] = $this->image;
         $res['data']['payload'] = $this->data;
         $res['data']['timestamp'] = date('Y-m-d G:i:s');
-        $res['notification']['title'] = $this->title;
+        $res['notification']['message'] = 'text';
         //$res['notification']['body'] = $this->message;
         return $res;
     }
