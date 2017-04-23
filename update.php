@@ -22,6 +22,7 @@
             $dis = distance($hlat, $hlon, $dlat, $dlon);
             if ($dis < $thr)
             {
+                echo "ON (Auto)";
                 $sql = 'SELECT status FROM users Where ID = '.$id;
                 $res = $conn->query($sql);
                 $row = $res->fetch_assoc();
@@ -31,7 +32,7 @@
                     $sql = 'UPDATE users SET status = 1, dist = \''.$dis.'\' WHERE id = '.$id;
                     if ($conn->query($sql) === TRUE)
                     {
-                        echo "ON (Auto)";
+                        
                         $sql = "SELECT fkey FROM users WHERE id = ".$id;
                         $res = $conn->query($sql);
                         $row = $res->fetch_assoc();
